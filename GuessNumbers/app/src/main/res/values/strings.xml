@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">GuessNumbers</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="btn_start">开始游戏</string>
+    <string name="btn_user_define">开始自定义游戏</string>
+    <string name="btn_help">帮助</string>
+    <string name="btn_history">我的战绩</string>
+    <string name="btn_exit">退出游戏</string>
+
+
+    <string name="exit_title">退出确认</string>
+    <string name="exit_msg">真的确定不再玩一局么？</string>
+
+    <string name="ensure">确认</string>
+    <string name="cancel">取消</string>
+
+    <string name="ensure1">不玩啦</string>
+    <string name="cancel1">留下来</string>
+    <string name="title_activity_guess_number">GuessNumber</string>
+
+    <string name="game_start">我已经想好一个数字啦，轮到你来猜啦！</string>
+    <string name="game_select">选择你猜想的数字</string>
+    <string name="game_first">你选的是</string>
+    <string name="game_big">,比我想的数字要大哦，再选一个吧。</string>
+    <string name="game_small">,比我想的数字要小哦，再选一个吧。</string>
+    <string name="game_answer">恭喜你！猜对了，正确答案是</string>
+
+    <string name="game_cong">恭喜</string>
+    <string name="game_again">再来一局</string>
+    <string name="game_mainmenu">返回主菜单</string>
+
+    <string name="temp_msg">哎呀呀，功能还没做好，客观稍等一段时间~~~</string>
+</resources>
