@@ -19,18 +19,24 @@
 
     <string name="ensure1">不玩啦</string>
     <string name="cancel1">留下来</string>
-    <string name="title_activity_guess_number">GuessNumber</string>
+    <string name="title_activity_guess_number">猜数字</string>
 
     <string name="game_start">我已经想好一个数字啦，轮到你来猜啦！</string>
     <string name="game_select">选择你猜想的数字</string>
     <string name="game_first">你选的是</string>
-    <string name="game_big">,比我想的数字要大哦，再选一个吧。</string>
-    <string name="game_small">,比我想的数字要小哦，再选一个吧。</string>
+
+    <string name="game_prefix">我选的数字比</string>
+    <string name="game_big">要大哦，再选一个吧。</string>
+    <string name="game_small">要小哦，再选一个吧。</string>
     <string name="game_answer">恭喜你！猜对了，正确答案是</string>
 
     <string name="game_cong">恭喜</string>
     <string name="game_again">再来一局</string>
     <string name="game_mainmenu">返回主菜单</string>
 
-    <string name="temp_msg">哎呀呀，功能还没做好，客观稍等一段时间~~~</string>
+    <string name="temp_msg">哎呀呀，功能还没做好，客官稍等一段时间~~~</string>
+
+    <!--key-->
+    <string name="key_user_define">user_define_game</string>
+
 </resources>

@@ -48,7 +48,7 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-        //¿ªÊ¼°´Å¥
+        //å¼€å§‹æ¸¸æˆ
         btnStart = (Button) findViewById(R.id.btn_start);
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +59,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        //ÍË³ö°´Å¥
+        //é€€å‡ºæŒ‰é’®
         btnExit = (Button) findViewById(R.id.btn_exit);
         btnExit.setOnClickListener(new View.OnClickListener() {
             @Override

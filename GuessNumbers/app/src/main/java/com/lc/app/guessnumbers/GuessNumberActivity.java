@@ -3,6 +3,7 @@ package com.lc.app.guessnumbers;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,16 +23,28 @@ public class GuessNumberActivity extends ActionBarActivity {
 
     private AlertDialog sucDia;
 
+    private Resources resources;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guess_number);
+        resources = getResources();
 
         int deMax = 100;
+
+        Intent intent=getIntent();//getIntent将该项目中包含的原始intent检索出来，将检索出来的intent赋值给一个Intent类型的变量intent
+        Bundle bundle=intent.getExtras();//.getExtras()得到intent所附带的额外数据
+        String str=bundle.getString(resources.getString(R.string.key_user_define));//getString()返回指定key的值
+
+        if(str != null && !"".equals(str)){
+
+        }
+
         result = randomNumber(deMax);
         Log.i("guess result:",String.valueOf(result));
 
-        Toast toast = Toast.makeText(getApplicationContext(),getResources().getString(R.string.game_start),Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(),resources.getString(R.string.game_start),Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
 
@@ -42,29 +55,29 @@ public class GuessNumberActivity extends ActionBarActivity {
 
         int deSelect = 0;
 
-        //����ѡ�����ֿ�
+        //开始游戏
         AlertDialog.Builder builder = new AlertDialog.Builder(GuessNumberActivity.this);
-        builder.setTitle(getResources().getString(R.string.game_select));
+        builder.setTitle(resources.getString(R.string.game_select));
         builder.setSingleChoiceItems(numArray, deSelect, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 int choise = Integer.parseInt(numArray[i]);
                 if (result > choise) {
-                    String message = getResources().getString(R.string.game_first) + choise + getResources().getString(R.string.game_small);
+                    String message = resources.getString(R.string.game_prefix)+ choise + resources.getString(R.string.game_big);
                     Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 } else if (result < choise) {
-                    String message = getResources().getString(R.string.game_first) + choise + getResources().getString(R.string.game_big);
+                    String message = resources.getString(R.string.game_prefix)+ choise + resources.getString(R.string.game_small);
                     Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 } else {
                     final DialogInterface dia = dialogInterface;
                     AlertDialog.Builder sucBuilder = new AlertDialog.Builder(GuessNumberActivity.this);
-                    sucBuilder.setTitle(getResources().getString(R.string.game_cong));
-                    sucBuilder.setMessage(getResources().getString(R.string.game_answer) + choise);
-                    sucBuilder.setNegativeButton(getResources().getString(R.string.game_mainmenu), new DialogInterface.OnClickListener() {
+                    sucBuilder.setTitle(resources.getString(R.string.game_cong));
+                    sucBuilder.setMessage(resources.getString(R.string.game_answer) + choise);
+                    sucBuilder.setNegativeButton(resources.getString(R.string.game_mainmenu), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface2, int i) {
                             dia.dismiss();
@@ -78,7 +91,7 @@ public class GuessNumberActivity extends ActionBarActivity {
                         }
                     });
 
-                    sucBuilder.setPositiveButton(getResources().getString(R.string.game_again), new DialogInterface.OnClickListener() {
+                    sucBuilder.setPositiveButton(resources.getString(R.string.game_again), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface2, int i) {
                             dia.dismiss();
@@ -91,8 +104,6 @@ public class GuessNumberActivity extends ActionBarActivity {
 
                             overridePendingTransition(0, 0);
                             startActivity(intent);
-
-
                         }
                     });
                     sucDia = sucBuilder.create();
@@ -101,7 +112,7 @@ public class GuessNumberActivity extends ActionBarActivity {
             }
         });
 
-        builder.setNegativeButton(getResources().getString(R.string.game_mainmenu), new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(resources.getString(R.string.game_mainmenu), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
